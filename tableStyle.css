@@ -1,0 +1,66 @@
+
+
+.overlay {width:40%;border-left:1px solid black;padding-left:5px;
+display:table-cell;text-align:right}
+.overlay button {margin:0px;font-size: 30px;width:40px;height:40px;
+padding:0 10px;  background-color: #36a2eb;}
+
+tr td:first-child, tr th:first-child, tr td:nth-child(2),tr th:nth-child(2) {
+    position: sticky !important;
+    left: 0;
+    z-index: 2;
+    background-color: white;
+}
+#basic_wrapper .bn49, #basic_filter input, #delete-btn, #export-btn,#basic_wrapper  select,#basic_wrapper  option,#basic_wrapper label {
+    border: 0;
+    text-align: center;
+   
+    padding: 8px;
+    margin: 0px;
+    font-size:14px;
+    color: #ffffff;
+    background-color: #36a2eb;
+    border-radius: 8px;
+    font-family: "proxima-nova-soft", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: box-shadow 200ms ease-out;
+  }
+  
+  .dataTables_wrapper{display: table-cell !important;clear:none  !important;}
+#basic_wrapper   a.bn49 {     padding: 15px 8px 0 8px; }
+  
+  #check-active {margin:3Px;margin-top:6Px}
+
+
+label>select, label>input {padding: 0px;
+    margin: 0px;}
+
+
+.selected2 {
+
+
+    background-color: lightgray;
+}
+#basic_length, .table-filter {
+/*
+display:inline-block;
+margin-left:3px;
+*/
+  display: flex;
+  gap: 10px;
+}
+#basic tr:hover {cursor:pointer}
+td{
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+.dataTables_scrollHeadInner {
+  margin: 0 auto;
+}
+
+.hidec {display:none}
+
+.jconfirm.jconfirm-light .jconfirm-box {width:50%}
