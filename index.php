@@ -1,6 +1,6 @@
-<?   session_start();
+<?php   session_start();
 
- //  print_r($_POST);
+print_r($_POST);
 
     if(isset($_SESSION["login"])){
         header("Location: ./table.php");
@@ -14,10 +14,12 @@
 
         if($_POST["username"] == $username &&  $_POST["password"] == $passwd){          
             $_SESSION["login"] = 1;
-            //echo "jek";
+            echo "jek";
             header("Location: ./table.php");
         }
-    }?><!DOCTYPE html>
+    }
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
