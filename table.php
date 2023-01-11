@@ -158,7 +158,7 @@ include("navigation.php")
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                 ?>
-                        <tr id="<?phpecho $row['id'];?>">
+                        <tr id="<?php echo $row['id'];?>">
                             <td><input type="checkbox" id="Mark_1"></td>
                             <td><?php echo $row['name'];?></td>
                             <td><?php echo $row['surname'];?></td>
