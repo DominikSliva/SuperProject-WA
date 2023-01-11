@@ -43,7 +43,7 @@ $(document).ready( function () {
     } );
   
  //   console.log($( window ).height()-100);
-        $(".dataTables_length").append($('<div class="table-filter"> <label>Aktivní:<input type="checkbox" id="check-active"></label><button id="edit-btn" class="bn49">Upravit vybrané</button><button class="bn49" id="delete-btn">Vymazat vybrané</button><button class="bn49" id="export-btn">Exportovat vybrané</button> | <a class="bn49" href="/firms/insertFirmForm.php">Přidání Firmy</a><a class="bn49 " href="/columns/columnForm.php">Úpravy sloupců</a><a class="bn49 " href="/events/tableEvents.php">Události</a></div>'));
+        $(".dataTables_length").append($('<div class="table-filter"> <label>Aktivní:<input type="checkbox" id="check-active" checked></label><button id="edit-btn" class="bn49">Upravit vybrané</button><button class="bn49" id="delete-btn">Vymazat vybrané</button><button class="bn49" id="export-btn">Exportovat vybrané</button> | <a class="bn49" href="/firms/insertFirmForm.php">Přidání Firmy</a><a class="bn49 " href="/columns/columnForm.php">Úpravy sloupců</a><a class="bn49 " href="/events/tableEvents.php">Události</a></div>'));
 
 
     $('#basic').DataTable().on( 'search.dt', function () {
