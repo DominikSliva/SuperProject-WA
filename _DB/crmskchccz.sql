@@ -1,5 +1,8 @@
 -- Adminer 4.8.1 MySQL 5.5.5-10.5.15-MariaDB-0+deb11u1-log dump
 
+create database superprojekt;
+use superprojekt;
+
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
@@ -28,28 +31,19 @@ INSERT INTO `columns` (`id`, `name`, `type`) VALUES
 (23,	'WS 22/23',	3),
 (24,	'Sponzor. dar 22/23',	3);
 
-DROP TABLE IF EXISTS `events`;
-CREATE TABLE `events` (
+DROP TABLE IF EXISTS `subject`;
+
+CREATE TABLE `subject` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firm_id` int(11) DEFAULT NULL,
-  `name` varchar(500) NOT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `time_start` datetime NOT NULL DEFAULT current_timestamp(),
-  `time_end` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk:firm` (`firm_id`),
-  CONSTRAINT `fk:firm` FOREIGN KEY (`firm_id`) REFERENCES `firm` (`id`)
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `events` (`id`, `firm_id`, `name`, `description`, `time_start`, `time_end`) VALUES
-(5,	NULL,	'NOrdic telecom',	'dělat příští rok WS 22/23\r\nnedostalo se na ně na praxíth, žáci je nechtěli.',	'2022-08-26 10:17:00',	'2022-08-31 10:17:00'),
-(6,	NULL,	'WS s VF',	'Email 22.6.22:\r\n\r\n\r\nZdravím z Vodafonu, pane Masopust,\r\n\r\n \r\n\r\nvěřím, že se Vám daří dobře a že již vyhlížíte konec školního roku a zasloužené letní volno.\r\n\r\nV minulých letech jsme byli ve společné komunikaci ohledně zapojení Vašich studentů do praktických aktivit Vodafonu a my bychom na tyto aktivity nyní moc rádi navázali a oslovili Vás v rámci spolupráce při nových projektech v IT sféře, které bychom rádi za Vodafone nastartovali a směřovali ke středním školám.\r\n\r\n \r\n\r\nChtěli bychom Vaší ško',	'2022-08-26 10:26:00',	'2022-08-31 10:26:00'),
-(7,	NULL,	'Ověřit emaily',	'filip.dvorak@basf.com \r\nmichaela.klouckova@ts.fujitsu.com \r\nmanaqement@intedo.cz \r\ndagmar.scalzo@cegelec.com couldn\'t be delivered.\r\npetra.zouboubkova@exon.cz\r\nsimona.bogasova@obis.cz\r\ninfo@celeano.cz\r\nsnytova@ceps.cz \r\nemilia.karisna@dimensiondata.com\r\njitka.kopecka@ericsson.com\r\njkratochvilova@foxconn.cz \r\nnina.moravcova@dentsuaegis.com\r\nvlasta.bucilova@unicreditbank.cz\r\neliska.nekolova@eset.cz\r\nseidl.ladislav@azd.cz \r\nLukas.jelinek@sazka.cz\r\npetra.slukova@myq-solution.com \r\nhr@eucpremium.cz \r',	'2022-08-26 16:44:00',	NULL),
-(8,	NULL,	'daskonet - domluvit WS',	'Dobrý den,\r\n\r\n \r\n\r\nworkshop by asi neměl být problém. Můžeme se dohodnout.\r\n\r\n \r\n\r\nS pozdravem\r\n\r\n \r\n\r\nJaroslav Kavalier\r\n\r\njednatel společnosti\r\n\r\nE-mail: jaroslav.kavalier@daskonet.cz\r\n\r\nGSM: +420 772 727 900\r\n\r\n \r\n\r\nPopis: podpis_1',	'2022-08-25 10:46:00',	NULL),
-(11,	NULL,	'Připravit WS s Cetinem',	'',	'2022-08-29 12:22:00',	NULL),
-(12,	NULL,	'Připravit WS s apertia',	'',	'2022-08-29 12:22:00',	NULL),
-(13,	NULL,	'Schrack 16.2. přijedou i s autem udělat ws',	'',	'2023-01-02 09:53:00',	NULL),
-(14,	NULL,	'Cetin exkurze',	'OZvat, kdy mají čas. viz email z 3.11.',	'2023-01-04 14:58:00',	NULL);
+INSERT INTO `subject` (`id`, `name`) VALUES
+(1,	'IT'),
+(2,	'ELE'),
+(3,	'ELE,IT');
+
 
 DROP TABLE IF EXISTS `firm`;
 CREATE TABLE `firm` (
@@ -86,7 +80,8 @@ CREATE TABLE `firm` (
   CONSTRAINT `fk_subject` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `firm` (`id`, `active`, `name`, `surname`, `email`, `phone`, `subject_id`, `source`, `date_of_contact`, `date_of_2_contact`, `date_of_meeting`, `result`, `workshop`, `brigade`, `practice`, `cv`, `note`, `c14`, `c15`, `c16`, `c17`, `c18`, `c19`, `c20`, `c21`, `c22`, `c23`, `c24`) VALUES
+INSERT INTO `firm` (`id`, `active`, `name`, `surname`, `email`, `phone`, `subject_id`, `source`, `date_of_contact`, `date_of_2_contact`, `date_of_meeting`, `result`, `workshop`, `brigade`, `practice`, `cv`, `note`, `c14`, `c15`, `c16`, `c17`, `c18`, `c19`, `c20`, `c21`, `c22`, `c23`, `c24`)
+VALUES
 (1,	1,	'2N',	'',	'zajicek@2n.com',	'',	1,	'IT',	NULL,	NULL,	NULL,	'nebude',	'Mají plnou kapacitu',	NULL,	NULL,	1,	'machacova@2n.cz',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
 (2,	1,	'3DTech',	'Vrbický',	'vilem.vrbicky@3dtech.cz',	'',	1,	'Praxe žáků',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
 (3,	1,	'ResidIT',	'Flata',	'martin.falta@residit.com',	'',	1,	'Mandík',	'2019-04-10',	NULL,	'2019-04-18',	'cv',	' praxe',	' workshopy',	NULL,	1,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
@@ -167,8 +162,32 @@ INSERT INTO `firm` (`id`, `active`, `name`, `surname`, `email`, `phone`, `subjec
 (97,	1,	'Rejnok',	'',	'František Šindelář <sindelar@rejnok.cz>',	'',	2,	'',	'2019-04-25',	NULL,	NULL,	'Zkusit příští rok',	NULL,	NULL,	NULL,	1,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
 (98,	1,	'control',	'',	'obchod@control.cz',	'556 704 290',	1,	'',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
 (99,	1,	'D&C s.r.o.',	'Josef Dusil',	'josef.dusil@dac-sro.cz',	'',	1,	'Praxe žáků',	'2019-01-28',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
-(100,	1,	'Dasko Net s.r.o.',	'Jaroslav Kavalier',	'jaroslav.kavalier@daskonet.cz',	'',	1,	'',	'2019-01-28',	NULL,	NULL,	'PRaxe',	NULL,	NULL,	'ano',	1,	'procházel jsem v květnu poskytnutá CV, ale nemohl jsem nalézt nic, co by nám vyhovovalo. Vesměs jsem nalezl samé programátory (SW pracovníky). Naše firma se zabývá výstavbou a zajišťováním provozu telekomunikační sítě (bezdrátové, optické, metalické) – tj. nejen jejich výstavbou, ale i konfigurací, dohledem, správou aktivních prvků, serverů, virtualizací, apod. Taktéž řešíme zabezpečovací systémy, kamerové systémy (jejich výstavbu i konfiguraci). Jedná se nám tedy spíš o HW technika. Aktuálně má',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
+(100,	1,	'Dasko Net s.r.o.',	'Jaroslav Kavalier',	'jaroslav.kavalier@daskonet.cz',	'',	1,	'',	'2019-01-28',	NULL,	NULL,	'PRaxe',	NULL,	NULL,	'ano',	1,	'procházel jsem v květnu poskytnutá CV, ale nemohl jsem nalézt nic, co by nám vyhovovalo. Vesměs jsem nalezl samé programátory (SW pracovníky). Naše firma se zabývá výstavbou a zajišťováním provozu telekomunikační sítě (bezdrátové, optické, metalické) – tj. nejen jejich výstavbou, ale i konfigurací, dohledem, správou aktivních prvků, serverů, virtualizací, apod. Taktéž řešíme zabezpečovací systémy, kamerové systémy (jejich výstavbu i konfiguraci). Jedná se nám tedy spíš o HW technika. Aktuálně má',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL)
 ;
+
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firm_id` int(11) DEFAULT NULL,
+  `name` varchar(500) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `time_start` datetime NOT NULL DEFAULT current_timestamp(),
+  `time_end` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk:firm` (`firm_id`),
+  CONSTRAINT `fk:firm` FOREIGN KEY (`firm_id`) REFERENCES `firm` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `events` (`id`, `firm_id`, `name`, `description`, `time_start`, `time_end`) VALUES
+(5,	NULL,	'NOrdic telecom',	'dělat příští rok WS 22/23\r\nnedostalo se na ně na praxíth, žáci je nechtěli.',	'2022-08-26 10:17:00',	'2022-08-31 10:17:00'),
+(6,	NULL,	'WS s VF',	'Email 22.6.22:\r\n\r\n\r\nZdravím z Vodafonu, pane Masopust,\r\n\r\n \r\n\r\nvěřím, že se Vám daří dobře a že již vyhlížíte konec školního roku a zasloužené letní volno.\r\n\r\nV minulých letech jsme byli ve společné komunikaci ohledně zapojení Vašich studentů do praktických aktivit Vodafonu a my bychom na tyto aktivity nyní moc rádi navázali a oslovili Vás v rámci spolupráce při nových projektech v IT sféře, které bychom rádi za Vodafone nastartovali a směřovali ke středním školám.\r\n\r\n \r\n\r\nChtěli bychom Vaší ško',	'2022-08-26 10:26:00',	'2022-08-31 10:26:00'),
+(7,	NULL,	'Ověřit emaily',	'filip.dvorak@basf.com \r\nmichaela.klouckova@ts.fujitsu.com \r\nmanaqement@intedo.cz \r\ndagmar.scalzo@cegelec.com couldn\t be delivered.\r\npetra.zouboubkova@exon.cz\r\nsimona.bogasova@obis.cz\r\ninfo@celeano.cz\r\nsnytova@ceps.cz \r\nemilia.karisna@dimensiondata.com\r\njitka.kopecka@ericsson.com\r\njkratochvilova@foxconn.cz \r\nnina.moravcova@dentsuaegis.com\r\nvlasta.bucilova@unicreditbank.cz\r\neliska.nekolova@eset.cz\r\nseidl.ladislav@azd.cz \r\nLukas.jelinek@sazka.cz\r\npetra.slukova@myq-solution.com \r\nhr@eucpremium.cz \r',	'2022-08-26 16:44:00',	NULL),
+
+(8,	NULL,	'daskonet - domluvit WS',	'Dobrý den,\r\n\r\n \r\n\r\nworkshop by asi neměl být problém. Můžeme se dohodnout.\r\n\r\n \r\n\r\nS pozdravem\r\n\r\n \r\n\r\nJaroslav Kavalier\r\n\r\njednatel společnosti\r\n\r\nE-mail: jaroslav.kavalier@daskonet.cz\r\n\r\nGSM: +420 772 727 900\r\n\r\n \r\n\r\nPopis: podpis_1',	'2022-08-25 10:46:00',	NULL),
+(11,	NULL,	'Připravit WS s Cetinem',	'',	'2022-08-29 12:22:00',	NULL),
+(12,	NULL,	'Připravit WS s apertia',	'',	'2022-08-29 12:22:00',	NULL),
+(13,	NULL,	'Schrack 16.2. přijedou i s autem udělat ws',	'',	'2023-01-02 09:53:00',	NULL),
+(14,	NULL,	'Cetin exkurze',	'OZvat, kdy mají čas. viz email z 3.11.',	'2023-01-04 14:58:00',	NULL);
 
 DROP TABLE IF EXISTS `firms_in_event`;
 CREATE TABLE `firms_in_event` (
@@ -203,17 +222,6 @@ INSERT INTO `hidden_columns` (`id`, `name`) VALUES
 (9,	'workshop'),
 (11,	'c18');
 
-DROP TABLE IF EXISTS `subject`;
-CREATE TABLE `subject` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `subject` (`id`, `name`) VALUES
-(1,	'IT'),
-(2,	'ELE'),
-(3,	'ELE,IT');
 
 DROP TABLE IF EXISTS `type_of_column`;
 CREATE TABLE `type_of_column` (
@@ -228,4 +236,7 @@ INSERT INTO `type_of_column` (`id`, `type`, `alias`) VALUES
 (2,	'date',	'Datum'),
 (3,	'int',	'Číslo');
 
--- 2022-12-13 17:31:39
+
+GRANT USAGE ON *.* TO `lm`@`%` IDENTIFIED BY PASSWORD '*94BDCEBE19083CE2A1F959FD02F964C7AF4CFC29';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `superprojekt`.* TO `lm`@`%`;

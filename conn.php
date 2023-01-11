@@ -1,12 +1,12 @@
 <?php
 $username = "lm";
-$passwd = "";
+$passwd = "test";
 
 
-$servername = "uvdb63.active24.cz";
-$usernameDb = "crmskchccz";
-$password = "";
-$dbname = "crmskchccz";
+$servername = "localhost";
+$usernameDb = "lm";
+$password = "test";
+$dbname = "superprojekt";
 $conn = new mysqli($servername, $usernameDb, $password, $dbname);
  $conn->query("set names utf8");
 
