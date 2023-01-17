@@ -39,7 +39,7 @@ include_once("session.php");
     ?>
 
     <main id="main-content">
-    <script>
+        <!--<script>
     function create () {
         $.ajax({
             url:"Table/tableApi.php",    //the page containing php script
@@ -55,8 +55,16 @@ include_once("session.php");
         });
     }
 </script>
-
 <button type="button" onclick="create()">Click Me</button>
+
+-->
+        <?php
+        include("Table/tableModel.php");
+        $sql = "SELECT * FROM events";
+        $t = new TableModel("events", $sql);
+
+        echo ($t->createTableHTML());
+        ?>
     </main>
 
 
