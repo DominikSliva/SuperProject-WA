@@ -2,7 +2,7 @@
     $action = $_POST["Action"];
 
     switch ($action){
-
+        
     case "getData":
         echo ("Data");
             break;

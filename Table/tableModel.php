@@ -2,9 +2,7 @@
 
 include("../conn.php");
 
-$t = new TableView("coffee", "SELECT * FROM events");
-echo ($t->createTableHTML());
-class TableView
+class TableModel
 {
 
     public $tableName;
