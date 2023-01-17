@@ -23,11 +23,7 @@ include_once("session.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     <link rel="stylesheet" href="Redesign/style.css">
-    <script src="editFirm/edit.js"></script>
-    <script src="ajax.js?v=<?php echo filemtime("ajax.js") ?>"></script>
-    <script src="table.js?v=<?php echo filemtime("table.js") ?>"></script>
-    <script src="clickRow.js?v=<?= time() ?>"></script>
-    <script src="select.js"></script>
+    <script defer src="Table/table.js"></script>
 
     <title>CMR</title>
 </head>
@@ -39,32 +35,8 @@ include_once("session.php");
     ?>
 
     <main id="main-content">
-        <!--<script>
-    function create () {
-        $.ajax({
-            url:"Table/tableApi.php",    //the page containing php script
-            type: "post",    //request type,
-            dataType: 'json',
-            data: {Action: "getData"},
-            success:function(result){
-                console.log(result.abc);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    }
-</script>
-<button type="button" onclick="create()">Click Me</button>
-
--->
-        <?php
-        include("Table/tableModel.php");
-        $sql = "SELECT * FROM events";
-        $t = new TableModel("events", $sql);
-
-        echo ($t->createTableHTML());
-        ?>
+        <table id="MainTable">
+        </table>
     </main>
 
 

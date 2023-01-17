@@ -5,11 +5,10 @@ include("../conn.php");
 class TableModel
 {
 
-    public $tableName;
-    public $sql;
+    private $tableName;
+    private $sql;
     public $headers = array();
-
-    private $rows = array();
+    public $rows = array();
 
 
     function __construct($tableName, $sql)
@@ -24,10 +23,8 @@ class TableModel
             array_push($this -> headers, $field->name);
         }
         
-
-        
         while ($row = $viewQuery->fetch_assoc()) {
-            array_push($this -> rows, new TableRow($this,$row));
+            array_push($this -> rows, new TableRow($row));
         }
 
     }
@@ -45,7 +42,7 @@ class TableModel
             $tBody .= $row->createRowHtml();
         }
         $tBody .= "</tbody>";
-        return "<table>" . $tHead . $tBody . "</table>";
+        return "<table id=\"MainTable\">" . $tHead . $tBody . "</table>";
     }
 
 
@@ -55,12 +52,10 @@ class TableModel
 class TableRow
 {
 
-    public $tableView;
     public $columns;
 
-    function __construct($tableView, $columns)
+    function __construct($columns)
     {
-        $this->tableView = $tableView;
         $this->columns = $columns;
 
     }
