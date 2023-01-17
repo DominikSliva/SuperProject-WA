@@ -1,17 +1,23 @@
 <?php
-$username = "lm";
-$passwd = "test";
 
+class ConnectionSingleton
+{
 
-$servername = "localhost";
-$usernameDb = "lm";
-$password = "test";
-$dbname = "superprojekt";
-$conn = new mysqli($servername, $usernameDb, $password, $dbname);
- $conn->query("set names utf8");
+    
+    static function getConnection()
+    {
 
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-  exit();
+    $conn = null;
+  $servername = "remisdavid.cz";
+  $usernameDb = "superapp";
+  $password = "VerySecretPassword1.";
+  $dbname = "SuperProject";
+
+  if (is_null($conn)) {
+    $conn = new mysqli($servername, $usernameDb, $password, $dbname);
+  }
+
+  return $conn;
 }
-?>
+
+}

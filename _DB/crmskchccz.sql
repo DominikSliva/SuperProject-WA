@@ -236,7 +236,3 @@ INSERT INTO `type_of_column` (`id`, `type`, `alias`) VALUES
 (2,	'date',	'Datum'),
 (3,	'int',	'Číslo');
 
-
-GRANT USAGE ON *.* TO `lm`@`%` IDENTIFIED BY PASSWORD '*94BDCEBE19083CE2A1F959FD02F964C7AF4CFC29';
-
-GRANT SELECT, INSERT, UPDATE, DELETE ON `superprojekt`.* TO `lm`@`%`;
