@@ -5,86 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <link rel="stylesheet" href="style.css">
-    <script defer src="https://kit.fontawesome.com/54a65f4c40.js" crossorigin="anonymous"></script>
     <title>Redesign tabulky</title>
+    <script defer src="script.js"></script>
 </head>
 
 <body>
-    <nav id="main-nav">
-        <a href="#" class="main-nav-item active">
-            <i class="fas fa-archive"></i>
-            <p>Všechny kontakty</p>
-        </a>
-        <a href="#" class="main-nav-item ">
-            <i class="fas fa-check"></i>
-            <p>Aktivní kontakty</p>
-        </a>
-        <div class="divider"></div>
-        <a href="#" class="main-nav-item ">
-            <i class="fas fa-archive"></i>
-            <p>Všechny skupiny</p>
-        </a>
-        <a href="#" class="main-nav-item ">
-            <i class="fas fa-check"></i>
-            <p>Aktivní skupiny</p>
-        </a>
-    </nav>
-    <main id="main-content">
-        <div class="action-bar">
-            <div class="action-group">
-                <a href="#" class="btn">
-                    <i></i>
-                    <p>Přidat firmu</p>
-                </a>
-                <a href="#" class="btn secondary">
-                    <i class="fas fa-edit"></i>
-                    <p>Upravit firmy</p>
-
-                </a>
-                <a href="#" class="btn danger disabled">
-                    <i></i>
-                    <p>Odstranit firmu</p>
-
-                </a>
-            </div>
-            <div class="action-group">
-                <a href="#" class="btn danger disabled">
-                    <i></i>
-                    <p>Odstranit firmu</p>
-                </a>
-            </div>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        <input type="checkbox" id="MarkAll">
-                    </th>
-                    <th>
-                        Název firmy
-                    </th>
-                    <th>
-                        Kontaktní osoba
-                    </th>
-                </tr>
+    
+    <main>
+        <table class="table table-striped">
+            <thead class="text-primary">
+              <tr>
+                <th scope="col">
+                    <input class="form-check-input" type="checkbox" id="masterCheck" onchange="checkAll()">
+                    <label class="form-check-label" for="gridCheck masterCheck">Název</label>
+                </th>
+                <th scope="col">Kontaktní osoba</th>
+                <th scope="col">Obor</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefon</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <input type="checkbox" id="Mark_1">
-                    </td>
-                    <td>
-                        Ječná
-                    </td>
-                    <td>
-                        Mandík
-                    </td>
-                </tr>
+
+
+              <tr class="table-content">
+                <th scope="row">
+                    <input class="form-check-input child-checks" type="checkbox" id="gridCheck" >
+                    <label class="form-check-label" for="gridCheck">ABC</label></th>
+                </th>
+                <td>Jacob</td>
+                <td>ELE,IT</td>
+                <td>jouda@test.cz</td>
+                <td>8765432</td>
+              </tr>
+              <tr class="table-content">
+                <th scope="row">
+                    <input class="form-check-input child-checks" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">Bca</label></th>
+                </th>
+                <td>Larry Hudson</td>
+                <td>ELE</td>
+                <td>jouda@test.test</td>
+                <td>2309823</td>
+              </tr>
+              
             </tbody>
-        </table>
+          </table>
+
     </main>
+    <footer>
+
+    </footer>
 </body>
 
 </html>

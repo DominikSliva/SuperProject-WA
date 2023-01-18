@@ -7,7 +7,7 @@
     switch ($action){
 
         case "getData":
-            $sql = "SELECT * FROM events";
+            $sql = "SELECT * FROM firm";
             $t = new TableModel("events", $sql);
             echo (json_encode($t));
             break;

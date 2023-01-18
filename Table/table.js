@@ -27,10 +27,10 @@ class Table {
 
 
     generateTheadHTML(headers) {
-        var toReturn = "<thead><tr>"
+        var toReturn = "<thead class=\"text-primary\"><tr><th scope=\"col\"><input class=\"form-check-input\" type=\"checkbox\" id=\"masterCheck\" onchange=\"checkAll()\"></th>"
         for (let i = 0; i < headers.length; i++) {
             const title = headers[i];
-            toReturn += "<th>" + title + "</th>";
+            toReturn += "<th scope=\"col\">" + title + "</th>";
 
         }
         return toReturn + "</tr></thead>";
@@ -39,7 +39,7 @@ class Table {
     generateRowHTML(row) {
         const keys = Object.keys(row.columns);
 
-        var toReturn = "<tr>";
+        var toReturn = "<tr class=\"table-content\"><th scope=\"row\"><input class=\"form-check-input child-checks\" type=\"checkbox\" id=\"gridCheck\" ></th></th>";
         keys.forEach((key, index) => {
              toReturn += "<td>" + row.columns[key] + "</td>";
         });
