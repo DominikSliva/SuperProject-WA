@@ -1,0 +1,48 @@
+:root{
+    --nav-text: black;
+    --nav-pridat-barva: rgb(32, 136, 32);
+    --nav-odstranit-barva: rgb(190, 28, 28);
+    --lm-color: rgb(19, 94, 215);
+    --table-hover: rgba(161, 159, 159, 0.637);
+}
+
+#pridat-firmu-text{
+    color: var(--nav-pridat-barva)
+}
+
+#pridat-firmu-text:hover{
+    color: var(--nav-text);
+}
+#pridat-firmu-btn:hover{
+   background-color: var(--nav-pridat-barva);
+   transition-duration: 0.3s;
+}
+
+#odstranit-firmu-text{
+    color: var(--nav-odstranit-barva);
+}
+#odstranit-firmu-text:hover{
+    color: var(--nav-text);
+}
+
+#odstranit-firmu-btn:hover{
+    background-color: var(--nav-odstranit-barva);
+    transition-duration: 0.3s;
+}
+
+#burger-menu{
+    color: black;
+    font-size: 1.2em;
+}
+#burger-menu:hover{
+    color: var(--lm-color);
+
+}
+main{
+    width: 85%;
+    margin: auto;
+}
+.table-content:hover{
+    background-color: var(--table-hover);
+    cursor: pointer;
+}
