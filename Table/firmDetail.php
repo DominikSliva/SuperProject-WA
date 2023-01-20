@@ -91,8 +91,6 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
             console.log(output);
             checkbox.value = output;
         }
-
-
     </script>
     
 </body>

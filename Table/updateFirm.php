@@ -39,4 +39,6 @@ if ($conn->query($query) === TRUE) {
 
 $conn->close();
 
+header("Location: ../table.php");
+
 ?>
