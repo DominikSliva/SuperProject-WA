@@ -33,12 +33,11 @@ $conn = ConnectionSingleton::getConnection();
 
 if ($conn->query($query) === TRUE) {
 	echo "Records updated";
+    header("Location: ../table.php");
 } else {
 	echo "Error: ".$query."<br>".$conn->error;
 }
 
 $conn->close();
-
-header("Location: ../table.php");
 
 ?>
