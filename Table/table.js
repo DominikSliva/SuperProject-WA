@@ -25,7 +25,7 @@ class Table {
                         }else{
                             var id = e.target.getAttribute("row-id");
                         }
-                        window.location.href = "/Table/firmDetail.php?id="+id;
+                        window.location.href = "./Table/firmDetail.php?id="+id;
 
                     })
                 }
