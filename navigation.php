@@ -8,7 +8,7 @@
                 <div>
                     <ul class="nav">
                         <li id="pridat-firmu-btn" class="nav-item navbar-toggler text-center">
-                            <a id="pridat-firmu-text" class="nav-link" href="#">
+                            <a id="pridat-firmu-text" class="nav-link" href="./Table/addFirmForm.php">
                                 <i class="fas fa-plus-circle"></i> Přidat firmu</a>
                         </li>
                         <span class="m-2"></span>
