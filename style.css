@@ -53,10 +53,9 @@ main{
 
 
 
+/* ----- Login ----- */
 
 
-
-/*Login*/
 body#login{
 
     overflow: hidden;
@@ -165,7 +164,7 @@ svg:hover{
     -o-transition: 0.6s;
 }
 
-.form-signin input[type="username"]:hover {
+.form-signin input[name="username"]:hover {
     transition: 0.6s;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
@@ -177,7 +176,7 @@ svg:hover{
     -ms-transition: 0.6s;
     -o-transition: 0.6s;
 }
-  .form-signin input[type="password"]:hover {
+  .form-signin input[name="password"]:hover {
     transition: 0.6s;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
