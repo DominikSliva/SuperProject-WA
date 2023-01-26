@@ -43,7 +43,7 @@ include_once("session.php");
     include("navigation.php")
     ?>
 
-    <main>
+    <main class="overflow-auto">
         <table id="MainTable" class="table table-striped">
         </table>
     </main>

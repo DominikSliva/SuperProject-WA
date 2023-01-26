@@ -38,10 +38,6 @@
     color: var(--lm-color);
 
 }
-main{
-    width: 85%;
-    margin: auto;
-}
 .table-content{
     cursor: pointer;
     z-index: 1;
