@@ -5,7 +5,7 @@ include("../conn.php");
 $form_data = $_POST;
 $conn = ConnectionSingleton::getConnection();
 
-$check_sql = "select email from firm where email =".$form_data["email"].";";
+$check_sql = "select * from firm where name=".$form_data["name"]."and surname= ".$form_data["surname"]."and email= ".$form_data["email"]."and phone= ".$form_data["phone"].";";
 $check_result = $conn -> query($check_sql);
 if ($result) {
     if (mysqli_num_rows($result) > 0) {
