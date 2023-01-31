@@ -39,8 +39,8 @@
 
 }
 main{
-    width: 85%;
-    margin: auto;
+    width: 100%;
+    padding: 4px;
 }
 .table-content{
     cursor: pointer;
@@ -49,6 +49,31 @@ main{
 
 .table-content:hover{
     background-color: var(--table-hover);
+}
+
+.table{
+    overflow: auto;
+    display: block;
+}
+
+.table tr{
+    position: relative;
+}
+
+.table tr > :is(td,th):nth-child(1){
+    width: 32px;
+    left: 0;
+}
+
+.table tr > :is(td,th):nth-child(2){
+    left: 32px;
+}
+.table tr > td:nth-child(2){
+    border-right: 1px solid #a8a8a8;
+}
+.table tr > :is(td,th):nth-child(-n+2){
+    position: sticky;
+    background: white;
 }
 
 
