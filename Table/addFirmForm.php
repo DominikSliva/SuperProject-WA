@@ -22,41 +22,41 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
 <body>
     <form action="addFirm.php" method="post">
         
-        <label for="active">Active:</label>
+        <label for="active">Aktivní:</label>
         <input type="checkbox" name="active" onclick="checkboxHelper(this)" value="0">
 
-        <label for="name">Name:</label>
+        <label for="name">Jméno:</label>
         <input type="text" name="name">
 
-        <label for="surname">Surname:</label>
+        <label for="surname">Příjmení:</label>
         <input type="text" name="surname">
 
         <label for="email">E-mail:</label>
         <input type="email" name="email" id="">
 
-        <label for="phone">Phone number:</label>
+        <label for="phone">Telefon:</label>
         <input type="text" name="phone">
 
-        <label for="subject">Subject:</label>
+        <label for="subject">Předmět:</label>
         <select name="subject" id="">
             <option value="1"><?php echo $subjects[1];?></option>
             <option value="2"><?php echo $subjects[2];?></option>
             <option value="3"><?php echo $subjects[3];?></option>
         </select>
 
-        <label for="source">Source:</label>
+        <label for="source">Zdroj:</label>
         <input type="text" name="source">
 
-        <label for="date_of_contact">Date of contact:</label>
+        <label for="date_of_contact">Datum kontaktu:</label>
         <input type="date" name="date_of_contact" id="">
 
-        <label for="date_of_2_contact">Date of 2nd contact:</label>
+        <label for="date_of_2_contact">Datum 2. kontaktu:</label>
         <input type="date" name="date_of_2_contact" id="">
 
-        <label for="date_of_meeting">Date of meeting:</label>
+        <label for="date_of_meeting">Datum schůzky:</label>
         <input type="date" name="date_of_meeting">
 
-        <label for="result">Result:</label>
+        <label for="result">Výsledek:</label>
         <input type="textarea" name="result">
 
         <label for="workshop">Workshop:</label>
@@ -65,7 +65,7 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
         <label for="brigade">Brigáda:</label>
         <input type="text" name="brigade">
 
-        <label for="practice">Practice:</label>
+        <label for="practice">Praxe:</label>
         <input type="text" name="practice">
 
         <label for="cv">CV:</label>

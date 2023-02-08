@@ -185,4 +185,36 @@ svg:hover{
     -o-transition: 0.6s;
 }
     
+/* ----- Add ----- */
 
+#pridat-novou-firmu-text{
+  color: var(--nav-pridat-barva)
+}
+
+#pridat-novou-firmu-text:hover{
+  color: var(--nav-text);
+}
+#pridat-novou-firmu-btn:hover{
+ background-color: var(--nav-pridat-barva);
+ transition-duration: 0.3s;
+}
+
+
+#back-text{
+  color: var(--nav-odstranit-barva);
+}
+#back-text:hover{
+  color: var(--nav-text);
+}
+#back-btn:hover{
+  background-color: var(--nav-odstranit-barva);
+  transition-duration: 0.3s;
+}
+
+/* ----- ADD TABLE ----- */
+#add-table-form{
+	place-items: center;
+	border: 8px solid;
+	padding: 3rem;
+  border-image: linear-gradient(to bottom, var(--lm-color), darkblue) 0 1;
+}
