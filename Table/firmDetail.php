@@ -32,7 +32,7 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
     <title><?php echo $firmValues["name"]. " Detail";?></title>
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid ">
                 
@@ -45,64 +45,124 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
             </div>
           </nav>
     </header>
-    <form action="updateFirm.php" method="post">
+
+    <form action="updateFirm.php" method="post" class="d-flex flex-column w-75 mx-auto align-items-center fs-6">
         <input type='hidden' name='id' <?php echo "value='".$id."'"; ?>>
         
-        <label for="active">Aktivní:</label>
-        <input type="checkbox" name="active" onclick="checkboxHelper(this)" <?php if($firmValues["active"] == 1){echo "checked";} echo " value='".$firmValues["active"]."'";?>>
+        <div class="d-flex flex-row w-75 justify-content-between mt-2">
+            <div class="d-flex">
+                <label style="margin-right: 10px;" for="active">Aktivní</label>
 
-        <label for="name">Jméno:</label>
-        <input type="text" name="name" <?php echo "value='".$firmValues["name"]."'";?>>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="active" onclick="checkboxHelper(this)" <?php if($firmValues["active"] == 1){echo "checked";} echo " value='".$firmValues["active"]."'";?>>
+                </div>
 
-        <label for="surname">Příjmení:</label>
-        <input type="text" name="surname" <?php echo "value='".$firmValues["surname"]."'";?>>
+            </div>
 
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="" <?php echo "value='".$firmValues["email"]."'";?>>
+            <div class="d-flex">
+                <label style="margin-right: 10px;" for="cv">CV</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="cv" onclick="checkboxHelper(this)" <?php if($firmValues["cv"] == 1){echo "checked";} echo " value='".$firmValues["cv"]."'"; ?>>
+                </div>
+            </div>
+        </div>
 
-        <label for="phone">Telefon:</label>
-        <input type="text" name="phone" <?php echo "value='".$firmValues["phone"]."'";?>>
+        <div class="d-flex flex-row w-75 justify-content-between">
+            <div>
+                <label for="name">Jméno</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="name" <?php echo "value='".$firmValues["name"]."'";?>>
+            </div>
 
-        <label for="subject">Předmět:</label>
-        <select name="subject" id="">
-            <option value="1" <?php if($firmValues["subject_id"] == 1){echo "selected";} ?> ><?php echo $subjects[1];?></option>
-            <option value="2" <?php if($firmValues["subject_id"] == 2){echo "selected";} ?>><?php echo $subjects[2];?></option>
-            <option value="3" <?php if($firmValues["subject_id"] == 3){echo "selected";} ?>><?php echo $subjects[3];?></option>
-        </select>
+            <div>
+                <label for="surname">Zastupitel</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="surname" <?php echo "value='".$firmValues["surname"]."'";?>>
+            </div>
+        </div>
 
-        <label for="source">Zdroj:</label>
-        <input type="text" name="source" <?php echo "value='".$firmValues["source"]."'"; ?>>
+        <div class="d-flex flex-row w-75 justify-content-between mt-2">
+            <div>
+                <label for="email">E-mail</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="email" name="email" id="" <?php echo "value='".$firmValues["email"]."'";?>>
+            </div>
+            <div>
+                <label for="phone">Telefon</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="phone" <?php echo "value='".$firmValues["phone"]."'";?>>
+            </div>
+        </div>
 
-        <label for="date_of_contact">Datum kontaktu:</label>
-        <input type="date" name="date_of_contact" id="" <?php echo "value='".$firmValues["date_of_contact"]."'"; ?>>
+        <div class="d-flex flex-row w-75 justify-content-between mt-2">
+            <div>
+            <label for="subject">Předmět</label>
+                <br>
+                <select name="subject" id="" class="bg-white p-1 border rounded border-dark-subtle">
+                  <option value="1" <?php if($firmValues["subject_id"] == 1){echo "selected";} ?> ><?php echo $subjects[1];?></option>
+                  <option value="2" <?php if($firmValues["subject_id"] == 2){echo "selected";} ?>><?php echo $subjects[2];?></option>
+                  <option value="3" <?php if($firmValues["subject_id"] == 3){echo "selected";} ?>><?php echo $subjects[3];?></option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="source">Zdroj</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="source" <?php echo "value='".$firmValues["source"]."'"; ?>>
+            </div>
+        </div>
 
-        <label for="date_of_2_contact">Datum 2. kontaktu:</label>
-        <input type="date" name="date_of_2_contact" id="" <?php echo "value='".$firmValues["date_of_2_contact"]."'"; ?>>
+        <div class="d-flex flex-row w-75 justify-content-between mt-2">
+            <div>
+                <label for="date_of_contact">Datum kontaktu</label>
+                <input class="border border-dark-subtle rounded p-1" type="date" name="date_of_contact" id="" <?php echo "value='".$firmValues["date_of_contact"]."'"; ?>>
+            </div>
+            <div>
+                <label for="date_of_2_contact">Datum 2. kontaktu</label>
+                <input class="border border-dark-subtle rounded p-1" type="date" name="date_of_2_contact" id="" <?php echo "value='".$firmValues["date_of_2_contact"]."'"; ?>>
+            </div>
+            <div>
+                <label for="date_of_meeting">Datum schůzky</label>
+                <input class="border border-dark-subtle rounded p-1" type="date" name="date_of_meeting" <?php echo "value='".$firmValues["date_of_meeting"]."'"; ?>>
+            </div>
+        </div>
+        
+        <div class="d-flex flex-row w-75 justify-content-between mt-2">
+            <div>
+                <label for="result">Výsledek</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="result" <?php echo "value='".$firmValues["result"]."'"; ?>>
+            </div>
+            <div>
+                <label for="workshop">Workshop</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="workshop" <?php echo "value='".$firmValues["workshop"]."'" ?>>
+            </div>
+        </div>
 
-        <label for="date_of_meeting">Datum schůzky:</label>
-        <input type="date" name="date_of_meeting" <?php echo "value='".$firmValues["date_of_meeting"]."'"; ?>>
+        <div class="d-flex flex-row w-75 justify-content-between mt-2">
+            <div>
+                <label for="brigade">Brigáda</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="brigade" <?php echo "value='".$firmValues["brigade"]."'"; ?>>
+            </div>
+            <div>
+                <label for="practice">Praxe</label>
+                <br>
+                <input class="border border-dark-subtle rounded p-1" type="text" name="practice" <?php echo "value='".$firmValues["practice"]."'"; ?>>
+            </div>
+        </div>            
+        
 
-        <label for="result">Výsledek:</label>
-        <input type="textarea" name="result" <?php echo "value='".$firmValues["result"]."'"; ?>>
+        <div class="d-flex flex-column w-75 mt-2">
+            <label for="note">Poznámka</label>
+            <br>
+            <textarea class="border border-dark-subtle rounded p-1" name="note" id="" cols="40" rows="4" class="w-100">
+                <?php echo $firmValues["note"]; ?>
+            </textarea>
+        </div>
 
-        <label for="workshop">Workshop:</label>
-        <input type="text" name="workshop" <?php echo "value='".$firmValues["workshop"]."'" ?>>
-
-        <label for="brigade">Brigáda:</label>
-        <input type="text" name="brigade" <?php echo "value='".$firmValues["brigade"]."'"; ?>>
-
-        <label for="practice">Praxe:</label>
-        <input type="text" name="practice" <?php echo "value='".$firmValues["practice"]."'"; ?>>
-
-        <label for="cv">CV:</label>
-        <input type="checkbox" name="cv" onclick="checkboxHelper(this)" <?php if($firmValues["cv"] == 1){echo "checked";} echo " value='".$firmValues["cv"]."'"; ?>>
-
-        <label for="note">Poznámka:</label>
-        <textarea name="note" id="" cols="40" rows="4">
-            <?php echo $firmValues["note"]; ?>
-        </textarea>
-
-        <input type="submit" value="Uložit">
+        <input type="submit" value="Uložit" class="w-25 mt-3 mx-auto btn btn-success"">
     </form>
 
     <script>
