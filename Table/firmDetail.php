@@ -162,7 +162,7 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
             </textarea>
         </div>
 
-        <input type="submit" value="Uložit" class="w-25 mt-3 mx-auto btn btn-success"">
+        <input type="submit" value="Uložit" class="w-25 mt-3 mx-auto btn btn-success">
     </form>
 
     <script>
