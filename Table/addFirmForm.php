@@ -127,14 +127,14 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
   <div class="row">
     <div class="col-md-6 mb-4">
       <div class="form-outline">
-        <label class="form-label" for="">Jméno</label>
+        <label class="form-label" for="">Název</label>
         <input type="text" id="" class="form-control form-control-lg" />
         
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="form-outline">
-        <label class="form-label" for="">Příjmení</label>
+        <label class="form-label" for="">Zástupce</label>
         <input type="text" id="" class="form-control form-control-lg" />
         
       </div>

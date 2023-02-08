@@ -69,7 +69,7 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
 
         <div class="d-flex flex-row w-75 justify-content-between">
             <div>
-                <label for="name">Jméno</label>
+                <label for="name">Název</label>
                 <br>
                 <input class="border border-dark-subtle rounded p-1" type="text" name="name" <?php echo "value='".$firmValues["name"]."'";?>>
             </div>
