@@ -1,0 +1,1 @@
+function checkAll(){for(var e=document.getElementsByClassName("child-checks"),c=document.getElementById("masterCheck"),h=0;h<e.length;h++)e[h].checked=c.checked}
