@@ -23,6 +23,7 @@ if(empty($form_data["active"])){
 if(empty($form_data["cv"])){
     $form_data["cv"] = 0;
 }
+$phone_number = str_replace(" ", "", $form_data["phone"]);
 
 $check_sql = "select * from firm where name=".$form_data["name"].";";
 $check_result = $conn -> query($check_sql);
@@ -39,7 +40,7 @@ if ($check_result) {
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-                <link rel="stylesheet" href="style.css">
+                <link rel="stylesheet" href="../style.css">
             </head>
             <body>
                     <nav class="navbar bg-body-tertiary p-0">
@@ -60,7 +61,7 @@ if ($check_result) {
         
         $query = "insert into firm(active, name, surname, email, phone, subject_id, source, date_of_contact, date_of_2_contact, date_of_meeting, result, workshop, brigade, practice, cv, note)
                  values(".$form_data["active"].", ".$form_data["name"].", ".$form_data["surname"].
-                 ", ".$form_data["email"].", ".$form_data["phone"].", ".$form_data["subject"].
+                 ", ".$form_data["email"].", ".$phone_number.", ".$form_data["subject"].
                  ", ".$form_data["source"].", ".$form_data["date_of_contact"].", ".$form_data["date_of_2_contact"].
                  ", ".$form_data["date_of_meeting"].", ".$form_data["result"].", ".$form_data["workshop"].
                  ", ".$form_data["brigade"].", ".$form_data["practice"].", ".$form_data["cv"].", ".$form_data["note"].");";
