@@ -153,9 +153,7 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
         <div class="d-flex flex-column w-75 mt-2">
             <label for="note">Poznámka</label>
             <br>
-            <textarea class="border border-dark-subtle rounded p-1" name="note" id="" cols="40" rows="4" class="w-100">
-                <?php echo $firmValues["note"]; ?>
-            </textarea>
+            <textarea class="border border-dark-subtle rounded p-1" name="note" id="" cols="40" rows="4" class="w-100"><?php echo $firmValues["note"]; ?></textarea>
         </div>
 
         <input type="submit" value="Uložit" class="w-25 mt-3 mb-4 mx-auto btn btn-success">

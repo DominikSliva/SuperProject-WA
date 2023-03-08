@@ -211,7 +211,7 @@ function multiEdit(){
         idsString += t.selectedIds[i] + ",";
     }
     idsString = idsString.substring(0, idsString.length - 1);
-    window.location.href = "./Table/firmDetail.php?id="+idsString;
+    window.location.href = "./Table/addFirmForm.php?id="+idsString;
 }
 
 document.getElementById("edit-btn").addEventListener('click', multiEdit);

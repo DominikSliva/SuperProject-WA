@@ -1,6 +1,10 @@
 <?php 
 include("../conn.php");
 
+$ids = $_GET["id"];
+
+
+
 $conn = ConnectionSingleton::getConnection();
 
 $subjectQuery = $conn -> query("select * from subject");
@@ -40,6 +44,7 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
     </header>
 <main class="w-75 m-auto mt-4">
 <form id="add-table-form" action="./addFirm.php" method="post">
+  <input type="hidden" name="ids" value=<?php echo "'".$ids."'";?>>
   <div class="row w-50 m-auto">
 
     <div class="col-md-6 mb-4 d-flex flex-row justify-content-center">
@@ -93,8 +98,8 @@ while($subRow = mysqli_fetch_assoc($subjectQuery)){
   <div class="row">
     <div class="col-md-6 mb-4">
       <div class="form-outline">
-      <label for="subject">Předmět:</label>
-      <select class="form-control form-control-lg" name="subject" id="">
+      <label for="subject_id">Předmět:</label>
+      <select class="form-control form-control-lg" name="subject_id" id="">
           <option value="1">IT</option>
           <option value="2">ELE</option>
           <option value="3">IT,ELE</option>
