@@ -10,24 +10,12 @@
     color: var(--nav-pridat-barva)
 }
 
-#pridat-firmu-text:hover{
-    color: var(--nav-text);
-}
-#pridat-firmu-btn:hover{
-   background-color: var(--nav-pridat-barva);
-   transition-duration: 0.3s;
-}
-
 #odstranit-firmu-text{
     color: var(--nav-odstranit-barva);
 }
-#odstranit-firmu-text:hover{
-    color: var(--nav-text);
-}
 
-#odstranit-firmu-btn:hover{
-    background-color: var(--nav-odstranit-barva);
-    transition-duration: 0.3s;
+:is(#odstranit-firmu-btn, #pridat-firmu-btn, #export-btn):hover{
+    filter: brightness(0.7);
 }
 
 #burger-menu{

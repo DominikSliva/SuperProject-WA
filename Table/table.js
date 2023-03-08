@@ -19,9 +19,11 @@ class Table {
                 for (let i = 0; i < rows.length; i++) {
                     const row = rows[i];
                     row.addEventListener('click', (e) => {
+                        console.log(e);
                         if(e.target.tagName == "TD"){
                             var id = e.target.parentElement.getAttribute("row-id");
-
+                        }else if(e.target.tagName == "INPUT"){
+                            return
                         }else{
                             var id = e.target.getAttribute("row-id");
                         }

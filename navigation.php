@@ -14,7 +14,11 @@
                                 <i class="fas fa-trash"></i> Odstranit firmu</a>
                         </li>
                         <span class="m-2"></span>
-                        
+                        <li id="export-btn" class="nav-item navbar-toggler text-center">
+                            <a id="export-text" class="nav-link" href="export.php">
+                                <i class="fas fa-file-export"></i> Export</a>
+                        </li>
+                        <span class="m-2"></span>
                       
                     </ul>
                   </div>
@@ -35,12 +39,12 @@
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 ">
                     
                     <li class="mb-2">
-                        <a id="burger-menu" href="#" class="main-nav-item">
+                        <a id="burger-menu" href="table.php" class="main-nav-item">
                             <i class="fas fa-address-book"> Všechny kontakty</i></a>
                     </li>
 
                     <li class="mb-2">
-                        <a id="burger-menu" href="#" class="main-nav-item active">
+                        <a id="burger-menu" href="tableActive.php" class="main-nav-item active">
                             <i class="fas fa-check"> Aktivní kontakty</i>
                         </a>
                     </li>
@@ -48,7 +52,7 @@
                   <span><hr class="m-auto mt-4 mb-4"></span>
                   
                   <li class="mb-2">
-                        <a id="burger-menu" href="#" class="main-nav-item active">
+                        <a id="burger-menu" href="logout.php" class="main-nav-item active">
                            <i class="fas fa-sign-out-alt"> Odhlásit se</i>
                         </a>
                     </li>

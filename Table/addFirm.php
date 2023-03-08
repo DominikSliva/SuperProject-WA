@@ -24,6 +24,11 @@ if(empty($form_data["cv"])){
     $form_data["cv"] = 0;
 }
 
+
+$form_data["phone"] = str_replace(' ', '', (string) $form_data["phone"]);
+
+
+
 $check_sql = "select * from firm where name=".$form_data["name"].";";
 $check_result = $conn -> query($check_sql);
 if ($check_result) {

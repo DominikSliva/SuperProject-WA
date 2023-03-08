@@ -21,6 +21,8 @@ if(empty($form_data["cv"])){
     $form_data["cv"] = 0;
 }
 
+$form_data["phone"] = str_replace(' ', '', (string) $form_data["phone"]);
+
 
 $query = "update firm set active=".$form_data["active"].", name=".$form_data["name"].", surname=".$form_data["surname"].
          ", email=".$form_data["email"].", phone=".$form_data["phone"].", subject_id=".$form_data["subject"].

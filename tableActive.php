@@ -33,9 +33,8 @@ include_once("session.php");
     <link rel="stylesheet" href="style.css">
     <!-- <script defer src="Table/table.js"></script>
     <script defer src="app.js"></script> -->
-
     <script>
-        var tableAction = "getData";
+        var tableAction = "getDataActive";
     </script>
     <script defer src="javascript.js"></script>
 
