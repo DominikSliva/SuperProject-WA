@@ -9,6 +9,11 @@
                                 <i class="fas fa-plus-circle"></i> Přidat firmu</a>
                         </li>
                         <span class="m-2"></span>
+                        <li id="edit-btn" class="nav-item navbar-toggler text-center">
+                            <a id="edit-text" class="nav-link" href="javascript:void(0);">
+                                <i class="fas fa-edit"></i> Editovat</a>
+                        </li>
+                        <span class="m-2"></span>
                         <li id="odstranit-firmu-btn" class="nav-item navbar-toggler text-center">
                             <a id="odstranit-firmu-text" class="nav-link" href="#">
                                 <i class="fas fa-trash"></i> Odstranit firmu</a>
@@ -19,6 +24,8 @@
                                 <i class="fas fa-file-export"></i> Export</a>
                         </li>
                         <span class="m-2"></span>
+
+
                       
                     </ul>
                   </div>

@@ -1,7 +1,5 @@
 
-function multiEdit(){
-    
-}
+
 
 class Table {
 
@@ -202,3 +200,18 @@ function hideColumn(index){
         cells[index].remove();
     }
 }
+
+function multiEdit(){
+      if (t.selectedIds.length < 1){
+          return
+      }
+
+    idsString = "";
+    for (let i = 0; i < t.selectedIds.length; i++) {
+        idsString += t.selectedIds[i] + ",";
+    }
+    idsString = idsString.substring(0, idsString.length - 1);
+    window.location.href = "./Table/firmDetail.php?id="+idsString;
+}
+
+document.getElementById("edit-btn").addEventListener('click', multiEdit);
