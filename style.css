@@ -231,3 +231,7 @@ svg:hover{
 	padding: 3rem;
   border-image: linear-gradient(to bottom, var(--lm-color), darkblue) 0 1;
 }
+
+.hide{
+    display: none;
+}

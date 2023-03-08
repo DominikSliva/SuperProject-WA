@@ -1,15 +1,19 @@
 
+function multiEdit(){
+    
+}
 
 class Table {
 
     constructor(tableElement) {
         this.tableElement = tableElement;
         this.refresh();
-
+        this.selectedIds = [];
     }
 
     refresh() {
         var table = this;
+        var thisobj = this;
         $.ajax({
             url: "Table/tableApi.php",    //the page containing php script
             type: "post",    //request type,
@@ -24,33 +28,56 @@ class Table {
                     row.addEventListener('click', (e) => {
                         if(e.target.tagName == "TD"){
                             var id = e.target.parentElement.getAttribute("row-id");
+                        }else if(e.target.tagName == "INPUT"){
+                            var rowID = e.target.parentElement.parentElement.getAttribute("row-id");
+                            if (e.target.checked){
+                                thisobj.selectedIds.push(rowID);
+                            }else{
+                                thisobj.selectedIds.splice(thisobj.selectedIds.indexOf(rowID), 1);
 
+                            }
+                            return;
                         }else{
                             var id = e.target.getAttribute("row-id");
                         }
+
                         window.location.href = "./Table/firmDetail.php?id="+id;
 
                     })
                 }
+
+                addHide();
+                loadColumns();
 
             },
             error: function (error) {
                 console.log(error);
             }
         });
-        loadColumns();
 
     }
 
+    checkAll() {
+        var checkboxes = document.getElementsByClassName("child-checks");
+        var master = document.getElementById("masterCheck");
+        this.selectedIds = []
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = master.checked;
 
+            if (master.checked){
+                var rowID = checkboxes[i].parentElement.parentElement.getAttribute("row-id")
+                this.selectedIds.push(rowID)
+            }
+        }
+    }
 
     generateTheadHTML(headers) {
 
 
-        var toReturn = "<thead class=\"text-primary\"><tr><th scope=\"col\"><input class=\"form-check-input\" type=\"checkbox\" id=\"masterCheck\" onchange=\"checkAll()\"></th>"
+        var toReturn = "<thead class=\"text-primary\"><tr><th scope=\"col\"><input class=\"form-check-input\" type=\"checkbox\" id=\"masterCheck\" onchange=\"t.checkAll()\"></th>"
         for (let i = 1; i < headers.length; i++) {
             const title = headers[i];
-            toReturn += "<th draggable=\"true\" ondragstart=\"dragColumn(event)\" ondragover=\"allowDrop(event)\" ondrop=\"dropColumn(event)\" scope=\"col\">" + title + "</th>";
+            toReturn += "<th draggable=\"true\" ondragstart=\"dragColumn(event)\" ondragover=\"allowDrop(event)\" ondrop=\"dropColumn(event)\" scope=\"col\"><p ondragover=\"allowDrop(event)\" ondrop=\"dropColumn(event)\">" + title + "</p><button ondragover=\"allowDrop(event)\" ondrop=\"dropColumn(event)\" class=\'column-hide\'>Skrýt</button></th>";
 
         }
         return toReturn + "</tr></thead>";
@@ -98,7 +125,7 @@ function checkAll() {
       var columnOrder = JSON.parse(localStorage.getItem('columnOrder'));
       if (columnOrder) {
           for (var i = 0; i < columnOrder.length; i++) {
-              moveColumn(i, columnOrder[i])
+              moveColumn(columnOrder[i].from, columnOrder[i].to)
           }
       }
   }
@@ -113,11 +140,25 @@ function allowDrop(event) {
 function dropColumn(event) {
     event.preventDefault();
     if (event.target.tagName === 'TH') {
+        column = event.target;
+    }
+    if (event.target.tagName === 'P' || event.target.tagName === 'BUTTON') {
+        column = event.target.parentElement;
+    }
+
+    if (event.target.tagName === 'TH') {
         var fromIndex = draggedColumn.cellIndex;
-        var toIndex = event.target.cellIndex;
+        var toIndex = column.cellIndex;
         moveColumn(fromIndex, toIndex);
-        var order = []
-        order.append({from: fromIndex, to: toIndex})
+        if (localStorage.getItem('columnOrder') === null){
+            var order = [];
+        }else{
+            var order = JSON.parse(localStorage.getItem('columnOrder'));
+        }
+
+
+
+        order.push({from: fromIndex, to: toIndex})
         localStorage.setItem('columnOrder', JSON.stringify(order));
     }
 }
@@ -126,7 +167,6 @@ function moveColumn(fromIndex, toIndex){
       if (fromIndex === toIndex){
           return;
       }
-    console.log(fromIndex + "," + toIndex)
 
     var rows = document.querySelectorAll('table tr');
 
@@ -139,7 +179,26 @@ function moveColumn(fromIndex, toIndex){
 
         rows[i].replaceChild(clonedFromCell, toCell);
         rows[i].replaceChild(clonedToCell, fromCell);
+
+
     }
+    addHide();
 
+}
 
+function addHide(){
+    var columnHider = document.getElementsByClassName("column-hide");
+    for (let j = 0; j < columnHider.length; j++) {
+        columnHider[j].addEventListener('click', (event) => {
+            hideColumn(event.target.parentElement.cellIndex);
+        })
+    }
+}
+
+function hideColumn(index){
+    var rows = document.querySelectorAll('table tr');
+    for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].cells;
+        cells[index].remove();
+    }
 }
